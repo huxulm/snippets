@@ -1,0 +1,27 @@
+baseURL: 'http://example.org/'
+languageCode: 'zh'
+title: 'Code Snippets'
+theme: 'ananke'
+defaultContentLanguage: 'zh'
+params:
+  show_reading_time: true
+  site_logo: 'img/logo.svg'
+  background_color_class: 'bg-white'
+  body_classes: "avenir bg-white"
+  ananke_socials:
+  - name: gitlab
+    url: https://gitlab.xaotos.cn/xulingming/code_snippets
+    label: Gitlab
+    color: '#ff6800'
+  custom_css:
+  - main.css
+
+module:
+  hugoVersion:
+    extended: true
+    min: 0.110.0
+  mounts:
+    - source: assets
+      target: assets
+    - source: node_modules/bootstrap
+      target: assets/vendor/bootstrap

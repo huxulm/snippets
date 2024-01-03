@@ -1,0 +1,18 @@
+{{/* For Users's overwrite */}}
+{{ $jsBs := resources.Get "vendor/bootstrap/dist/js/bootstrap.bundle.js" -}}
+{{ $jsArray := slice $jsBs -}}
+{{ $js := $jsArray | resources.Concat "js/main.js" -}}
+{{ if hugo.IsProduction -}}
+  {{ $js := $js | minify | fingerprint -}}
+  <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" crossorigin="anonymous"></script>
+{{ else -}}
+  <script src="{{ $js.RelPermalink }}"></script>
+{{ end -}}
+
+{{ $jsC2c := resources.Get "js/click-to-copy.js" -}}
+{{ if hugo.IsProduction -}}
+  {{ $jsC2c := $jsC2c | minify | fingerprint -}}
+  <script defer src="{{ $jsC2c.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" crossorigin="anonymous"></script>
+{{ else -}}
+  <script defer src="{{ $jsC2c.RelPermalink }}"></script>
+{{ end -}}
