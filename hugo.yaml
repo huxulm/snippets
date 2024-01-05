@@ -1,9 +1,13 @@
 baseURL: 'http://example.org/'
 languageCode: 'zh'
 title: 'Code Snippets'
-theme: 'ananke'
+# theme: 'ananke'
 defaultContentLanguage: 'zh'
 params:
+  use_prism: true
+  # prism_theme: 'coy'
+  # prism_theme: 'twilight'
+  prism_theme: 'one-light'
   show_reading_time: true
   site_logo: 'img/logo.svg'
   background_color_class: 'bg-white'
@@ -13,8 +17,30 @@ params:
     url: https://gitlab.xaotos.cn/xulingming/code_snippets
     label: Gitlab
     color: '#ff6800'
-  custom_css:
-  - main.css
+  search:
+    algolia:
+      # appId: JK7YO1LOVV
+      # apiKey: b7ba9320220309ac639e8a7c52b70e73
+      # indexName: local_code_snippets
+      appId: "R2IYF7ETH7"
+      apiKey: "599cec31baffa4868cae4e79f180729b"
+      indexName: "docsearch"      
+
+markup:
+  highlight:
+    anchorLineNos: false
+    codeFences: false
+    guessSyntax: false
+    hl_Lines: ""
+    hl_inline: false
+    lineAnchors: ""
+    lineNoStart: 1
+    lineNos: false
+    lineNumbersInTable: false
+    noClasses: true
+    noHl: false
+    style: ""
+    tabWidth: ""
 
 module:
   hugoVersion:
@@ -25,3 +51,7 @@ module:
       target: assets
     - source: node_modules/bootstrap
       target: assets/vendor/bootstrap
+    - source: node_modules/prismjs
+      target: assets/vendor/prismjs    
+    - source: node_modules/prism-themes
+      target: assets/vendor/prism-themes 

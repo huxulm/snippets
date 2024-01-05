@@ -1,0 +1,36 @@
+<!-- vendor -->
+{{ $cssArray := slice }}
+{{ with resources.Get "vendor/bootstrap/dist/css/bootstrap.css" }}
+  {{ $cssArray = $cssArray | append . }}
+{{ end }}
+
+{{ if site.Params.use_prism }}
+  {{ with resources.Get (print "vendor/prism-themes/themes/prism-" site.Params.prism_theme ".css") }}
+    {{ $cssArray = $cssArray | append . }}
+  {{ end }}
+{{end}}
+{{ $css := $cssArray | resources.Concat "css/vendor.css" | postCSS }}
+{{ if hugo.IsProduction -}}
+  {{ $css := $css | minify | fingerprint -}}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+{{ else -}}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+{{ end -}}
+
+{{ with partialCached "func/style/GetMainCSS" "style/GetMainCSS" }}
+<link rel="stylesheet" href="{{ .RelPermalink }}" >
+{{ end }}
+
+{{ if and .Site.Params.search (isset .Site.Params.search "algolia") -}}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3.5.2"
+  integrity="sha512-TW5eKlwwg7OfQUVBqxjp94/uqtjJJbhkRE3++XGEQjAL1n3y//QVqS3acPkwqkzInaFRtj+w05uyxDbfDXiI1A=="
+  crossorigin="anonymous" />
+{{ end -}}
+
+{{ range site.Params.custom_css }}
+  {{ with partialCached "func/style/GetResource" . . }}{{ else }}
+    <link rel="stylesheet" href="{{ relURL (.) }}">
+  {{ end }}
+{{ end }}
+
+

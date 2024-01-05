@@ -1,0 +1,13 @@
+{
+  "index_name": "local_code_snippets",
+  "start_urls": ["http://119.78.161.98:1313"],
+  "selectors": {
+    "lvl0": "header h1",
+    "lvl1": "article h1",
+    "lvl2": "section h3",
+    "lvl3": "section h4",
+    "lvl4": "section h5",
+    "lvl5": "section h6",
+    "text": "header p, section p, section ol"
+  }
+}

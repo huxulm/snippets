@@ -1,0 +1,4 @@
+algolia:   
+	appID: "JK7YO1LOVV"
+	index: "local_code_snippets"
+	key: "03e115eb700212e697fe11aa080e65a9"

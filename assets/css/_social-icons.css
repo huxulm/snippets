@@ -1,0 +1,21 @@
+.socials a{
+  display: inline-block;
+  vertical-align: middle;
+  color: #BABABA;
+  fill: currentColor;
+}
+.socials a .icon svg{
+  width: 32px;
+  height: 32px;
+}
+.socials a:hover {
+  color: rgb(107, 114, 128);
+}
+.new-window {
+  opacity: 0;
+  display: inline-block;
+  vertical-align: top;
+}
+.link-transition:hover .new-window{
+  opacity: 1;
+}

@@ -1,6 +1,13 @@
 {{/* For Users's overwrite */}}
 {{ $jsBs := resources.Get "vendor/bootstrap/dist/js/bootstrap.bundle.js" -}}
 {{ $jsArray := slice $jsBs -}}
+{{ with resources.Get "vendor/prismjs/prism.js" -}}
+  {{ $jsArray = $jsArray | append . }}
+{{ end }}
+{{ with resources.Get "js/prism.js" -}}
+  {{ $jsArray = $jsArray | append . }}
+{{ end }}
+
 {{ $js := $jsArray | resources.Concat "js/main.js" -}}
 {{ if hugo.IsProduction -}}
   {{ $js := $js | minify | fingerprint -}}
@@ -15,4 +22,20 @@
   <script defer src="{{ $jsC2c.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" crossorigin="anonymous"></script>
 {{ else -}}
   <script defer src="{{ $jsC2c.RelPermalink }}"></script>
+{{ end -}}
+
+{{ define "algolia/scripts" -}}
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+const containers = ['#docsearch-0', '#docsearch-1'];
+for (let c of containers) {
+  docsearch({
+    container: c,
+    appId: {{ .appId | default "R2IYF7ETH7" }},
+    apiKey: {{ .apiKey | default "599cec31baffa4868cae4e79f180729b" }},
+    indexName: {{ .indexName | default "docsearch" }},
+    algoliaOptions: { 'facetFilters': ["lang:zh-Hans"] },
+  });
+}
+</script>
 {{ end -}}
