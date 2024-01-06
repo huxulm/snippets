@@ -1,4 +1,4 @@
-baseURL: 'http://example.org/'
+baseURL: 'https://huxulm.github.io/code_snippets'
 languageCode: 'zh'
 title: 'Code Snippets'
 # theme: 'ananke'
@@ -12,7 +12,7 @@ params:
   site_logo: 'img/logo.svg'
   background_color_class: 'bg-white'
   body_classes: "avenir bg-white"
-  ananke_socials:
+  socials:
   - name: gitlab
     url: https://gitlab.xaotos.cn/xulingming/code_snippets
     label: Gitlab
