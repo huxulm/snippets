@@ -35,6 +35,7 @@ for (let c of containers) {
     apiKey: {{ .apiKey | default "599cec31baffa4868cae4e79f180729b" }},
     indexName: {{ .indexName | default "docsearch" }},
     algoliaOptions: { 'facetFilters': ["lang:zh-Hans"] },
+    placeholder: "搜索代码片段，标题，标签，内容",
   });
 }
 </script>

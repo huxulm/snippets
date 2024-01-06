@@ -1,7 +1,5 @@
 pre, .pre  {
-  overflow-x: auto;
   overflow-y: hidden;
-  overflow:   scroll;
 }
 
 
@@ -11,14 +9,12 @@ pre  code {
   white-space: pre;
   font-size: .875rem;
   line-height: 2;
-
 }
 
 pre {
   background-color: transparent!important;
   color: #ddd;
   white-space: pre;
-
   hyphens: none;
   position: relative;
 }
@@ -32,6 +28,13 @@ pre {
 
 pre[class*="language-"] {
   padding: 0;
+}
+
+pre code {
+  width: 100%;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  background-color: black!important;
 }
 
 .click-to-copy {
