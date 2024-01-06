@@ -7,7 +7,8 @@ params:
   use_prism: true
   # prism_theme: 'coy'
   # prism_theme: 'twilight'
-  prism_theme: 'one-light'
+  # prism_theme: 'one-light'
+  prism_theme: 'duotone-dark'
   show_reading_time: true
   site_logo: 'img/logo.svg'
   background_color_class: 'bg-white'
