@@ -2,9 +2,9 @@ import docsearch from '@docsearch/js';
 
 docsearch({
   container: '#docsearch',
-  appId: 'KMWY81ZWS3',
-  indexName: 'getdoks',
-  apiKey: '691951526b11e1a708258e4e1a51adc7',
+  appId: 'JK7YO1LOVV',
+  apiKey: 'b7ba9320220309ac639e8a7c52b70e73',
+  indexName: 'local_code_snippets',
   insights: true,
 });
 

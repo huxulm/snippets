@@ -1,4 +1,4 @@
-baseURL: 'https://huxulm.github.io/code_snippets'
+baseURL: 'https://cs.xulm.xaotos.cn/'
 languageCode: 'zh'
 title: 'Code Snippets'
 # theme: 'ananke'
@@ -20,12 +20,10 @@ params:
     color: '#ff6800'
   search:
     algolia:
-      # appId: JK7YO1LOVV
-      # apiKey: b7ba9320220309ac639e8a7c52b70e73
-      # indexName: local_code_snippets
-      appId: "R2IYF7ETH7"
-      apiKey: "599cec31baffa4868cae4e79f180729b"
-      indexName: "docsearch"      
+      appId: JK7YO1LOVV
+      apiKey: b7ba9320220309ac639e8a7c52b70e73
+      indexName: local_code_snippets
+
 
 markup:
   highlight:
