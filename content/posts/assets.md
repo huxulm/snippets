@@ -7,7 +7,7 @@ tags:
     - 编程
 title: assets
 ---
-```go
+```go {title="assets.go"}
 package assets
 
 import (

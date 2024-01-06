@@ -15,7 +15,7 @@ pre  code {
 }
 
 pre {
-  background-color: #222;
+  background-color: transparent!important;
   color: #ddd;
   white-space: pre;
 
