@@ -22,7 +22,7 @@ params:
     algolia:
       appId: JK7YO1LOVV
       apiKey: b7ba9320220309ac639e8a7c52b70e73
-      indexName: local_code_snippets
+      indexName: pro_code_snippets
 
 
 markup:
