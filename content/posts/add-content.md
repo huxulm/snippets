@@ -19,7 +19,7 @@ series = [
 ]
 images = []
 navWeight = 970
-authors = ["RazonYang"]
+authors = ["Hxulm"]
 [menu.footer]
   parent = "posts"
   weight = 5
