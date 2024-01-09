@@ -3,7 +3,7 @@ pre, .pre  {
 }
 
 
-pre  code {
+pre code {
   display: block;
   padding: 1.5em 1.5em;
   white-space: pre;
@@ -32,8 +32,8 @@ pre[class*="language-"] {
 
 pre code {
   width: 100%;
-  overflow-y: hidden;
-  overflow-x: scroll;
+  overflow-y: auto;
+  overflow-x: auto;
   background-color: black!important;
 }
 

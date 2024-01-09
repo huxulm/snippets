@@ -2,7 +2,7 @@
 other = "更多"
 
 [allTitle]
-other = "所有 {{.Title }}"
+other = "所有内容"
 
 [recentTitle]
 other = "最近 {{.Title }}"
@@ -12,6 +12,9 @@ other = "继续阅读"
 
 [whatsInThis]
 other = "这个{{ .Type }}中有"
+
+[tocTitle]
+other = "主要内容"
 
 [related]
 other = "相关內容"
@@ -30,6 +33,9 @@ other = "需要电子邮件地址。"
 
 [send]
 other = "发送"
+
+[tag]
+other = "标签"
 
 [taxonomyPageList]
 other = "标签为“{{ .Title }}”的页面如下"

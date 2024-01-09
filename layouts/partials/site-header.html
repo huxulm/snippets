@@ -17,8 +17,8 @@
     </div>
   </header>
 {{ else }}
-  <header>
-    <div class="pb3-m shadow-1 {{ .Site.Params.background_color_class | default "bg-black" }}">
+  <header class="w-100 bb">
+    <div class="db dt-ns center w-100 pb3-m {{ .Site.Params.background_color_class | default "bg-white" }}">
       {{ partial "site-navigation.html" . }}
     </div>
   </header>

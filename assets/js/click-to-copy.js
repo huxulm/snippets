@@ -3,6 +3,7 @@ let codeListings = document.querySelectorAll('pre');
 for (let index = 0; index < codeListings.length; index++) {
   const codeSample = codeListings[index].querySelector('code');
   const copyButton = document.createElement('button');
+  copyButton.setAttribute('data-bs-original-title', '');
   const buttonAttributes = {
     type: 'button',
     title: '复制代码',
@@ -31,9 +32,9 @@ for (let index = 0; index < codeListings.length; index++) {
     tooltip.show();
   };
 
-  copyButton.onmouseout = () => {
+  copyButton.onmouseenter = (e) => {
     copyButton.setAttribute('data-bs-original-title', '复制到剪贴板');
-    tooltip.hide();
+    // tooltip.hide();
   };
 
   const buttonDiv = document.createElement('div');

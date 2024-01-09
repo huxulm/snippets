@@ -6,16 +6,15 @@
     </div>
   </article>
   <div class="mw8 center">
-    <section class="ph4">
+    <section class="ph4 flex con">
       {{ range $term := .Data.Pages }}
-        <h2 class="f1">
-          <a href="{{ $term.RelPermalink }}" class="link blue hover-black">
-            {{ $.Data.Singular | humanize }}: {{ $term.LinkTitle }}
+        <span class="ba br-pill b--black bw1 pv3-ns ph3-ns bg-white hover-light-gray mw5">
+          <a href="{{ $term.RelPermalink }}" class="f4 link nowrap black">
+            {{ $.Data.Singular | i18n }}: {{ $term.LinkTitle }}
+            {{ $p := where .Site.RegularPages "Params.tags" "intersect" (slice $term.LinkTitle)}}
+            ({{ len $p }})
           </a>
-        </h2>
-        {{ range $term.Pages }}
-          {{ .Render "summary" }}
-        {{ end }}
+        </span>
       {{ end }}
     </section>
   </div>

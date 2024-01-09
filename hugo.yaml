@@ -3,7 +3,13 @@ languageCode: 'zh'
 title: 'Code Snippets'
 # theme: 'ananke'
 defaultContentLanguage: 'zh'
+menus:
+  main:
+  - name: 我的书籍
+    url: /books
+    weight: 20
 params:
+  date_format: 2006-01-02 15:04
   use_prism: true
   # prism_theme: 'coy'
   # prism_theme: 'twilight'
@@ -24,6 +30,9 @@ params:
       apiKey: b7ba9320220309ac639e8a7c52b70e73
       indexName: pro_code_snippets
 
+taxonomies:
+  author: "authors"
+  tag: "tags"
 
 markup:
   highlight:

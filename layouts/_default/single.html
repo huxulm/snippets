@@ -1,68 +1,93 @@
 {{ define "header" }}
-   {{/* We can override any block in the baseof file be defining it in the template */}}
-  {{ partial "page-header.html" . }}
+{{/* We can override any block in the baseof file be defining it in the template */}}
+{{ partial "page-header.html" . }}
 {{ end }}
 
 {{ define "main" }}
-  {{ $section := .Site.GetPage "section" .Section }}
-  <article class="flex-l flex-wrap justify-between mw7 center ph3">
-    <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked ttu">
-          {{/*
-          CurrentSection allows us to use the section title instead of inferring from the folder.
-          https://gohugo.io/variables/page/#section-variables-and-methods
-          */}}
-        {{ .CurrentSection.Title }}
-      </aside>
-      {{ partial "social-share.html" . }}
-      <h1 class="f1 athelas mt3 mb1">
-        {{- .Title -}}
-      </h1>
-      {{ with .Params.author | default .Site.Params.author }}
-      <p class="tracked">
-        {{ $.Render "by" }} <strong>
-        {{- if reflect.IsSlice . -}}
-            {{ delimit . ", " | markdownify }}
-        {{- else -}}
-            {{ . | markdownify }}
-        {{- end -}}
-        </strong>
-      </p>
-      {{ end }}
-      {{/* Hugo uses Go's date formatting is set by example. Here are two formats */}}
-      {{ if not .Date.IsZero }}
-      <time class="f6 mv4 dib tracked" {{ printf `datetime="%s"` (.Date.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr }}>
-        {{- .Date | time.Format (default "January 2, 2006" .Site.Params.date_format) -}}
-      </time>
-      {{end}}
+{{ $section := .Site.GetPage "section" .Section }}
+<article class="w-100 ph4 pb5 pb6-ns pt1 pt5-ns">
+  <div class="flex-l">
+    <div class="order-0 w-20 dn db-l">
+      <div class="sticky pt5-ns">
+        <p class="f3 ph5-ns">所有标签</p>
+        <section class="ph4 flex-con flex-gap1 mt2 ph5-ns">
+          {{ range site.Taxonomies.tags }}
+          {{ $p := .Page }}
+          <span class="ba br-pill b--black bw1 pv1-ns ph2-ns mw5 hover-bg-light-gray">
+            <a href="{{ $p.RelPermalink }}" class="f6 link nowrap black">
+              {{ $p.Title }} ({{ .Count }})
+            </a>
+          </span>
+          {{ end }}
+        </section>
+      </div>
+    </div>
+    <div class="order-1 ph0 ph5-ns mid-gray flex-grow-1">
+      <div class="mw8">
+        <header class="mt4 w-100">
+          <aside class="instapaper_ignoref b helvetica tracked ttu">
+            {{/*
+            CurrentSection allows us to use the section title instead of inferring from the folder.
+            https://gohugo.io/variables/page/#section-variables-and-methods
+            */}}
+            {{ .CurrentSection.Title }}
+          </aside>
+          {{ partial "social-share.html" . }}
+          <h1 class="f1 athelas mt3 mb1">
+            {{- .Title -}}
+          </h1>
+          {{ with .Params.author | default .Site.Params.author }}
+          <p class="tracked">
+            {{ $.Render "by" }} <strong>
+              {{- if reflect.IsSlice . -}}
+              {{ delimit . ", " | markdownify }}
+              {{- else -}}
+              {{ . | markdownify }}
+              {{- end -}}
+            </strong>
+          </p>
+          {{ end }}
+          {{/* Hugo uses Go's date formatting is set by example. Here are two formats */}}
+          {{ if not .Date.IsZero }}
+          <time class="f6 mv4 dib tracked" {{ printf `datetime="%s" ` (.Date.Format "2006-01-02T15:04:05Z07:00" ) |
+            safeHTMLAttr }}>
+            {{- .Date | time.Format (default "January 2, 2006" .Site.Params.date_format) -}}
+          </time>
+          {{end}}
 
-      {{/*
+          {{/*
           Show "reading time" and "word count" but only if one of the following are true:
           1) A global config `params` value is set `show_reading_time = true`
           2) A section front matter value is set `show_reading_time = true`
           3) A page front matter value is set `show_reading_time = true`
-        */}}
-      {{ if (or (eq (.Param "show_reading_time") true) (eq $section.Params.show_reading_time true) )}}
-        <span class="f6 mv4 dib tracked"> - {{ i18n "readingTime" .ReadingTime }} </span>
-        <span class="f6 mv4 dib tracked"> - {{ i18n "wordCount" .WordCount }} </span>
-      {{ end }}
-    </header>
-    <div class="nested-copy-line-height lh-copy {{ $.Param "post_content_classes"  | default "serif"}} f4 nested-links {{ $.Param "text_color" | default "mid-gray" }} {{ cond (eq $.Site.Language.LanguageDirection "rtl") "pl4-l" "pr4-l" }} w-100">
-      {{- .Content -}}
-      {{- partial "tags.html" . -}}
-      <div class="mt6 instapaper_ignoref">
-      {{ if .Site.Config.Services.Disqus.Shortname }}
-        {{ template "_internal/disqus.html" . }}
-      {{ end }}
-      {{ if .Site.Params.commentoEnable }}
-        {{- partial "commento.html" . -}}
-      {{ end }}
+          */}}
+          {{ if (or (eq (.Param "show_reading_time") true) (eq $section.Params.show_reading_time true) )}}
+          <span class="f6 mv4 dib tracked"> - {{ i18n "readingTime" .ReadingTime }} </span>
+          <span class="f6 mv4 dib tracked"> - {{ i18n "wordCount" .WordCount }} </span>
+          {{ end }}
+        </header>
+        <div class="nested-copy-line-height lh-copy {{ $.Param " post_content_classes" | default "serif" }} f4
+          nested-links {{ $.Param "text_color" | default "mid-gray" }} {{ cond (eq
+          $.Site.Language.LanguageDirection "rtl" ) "pl4-l" "pr4-l" }} w-100">
+          {{- .Content -}}
+          <hr />
+          {{- partial "tags.html" . -}}
+          <div class="mt6 instapaper_ignoref">
+            {{ if .Site.Config.Services.Disqus.Shortname }}
+            {{ template "_internal/disqus.html" . }}
+            {{ end }}
+            {{ if .Site.Params.commentoEnable }}
+            {{- partial "commento.html" . -}}
+            {{ end }}
+          </div>
+        </div>
       </div>
     </div>
-
-    <aside class="w-30-l mt6-l">
-      {{- partial "menu-contextual.html" . -}}
-    </aside>
-
-  </article>
+    <div class="order-2 w-20 dn db-l pt0 right-2">
+      <aside class="mw10 pv0-ns ph4-ns fixed">
+        {{- partial "menu-contextual.html" . -}}
+      </aside>
+    </div>
+  </div>
+</article>
 {{ end }}

@@ -12,7 +12,7 @@
     {{/* Derive the section name  */}}
     {{ $section_name := index (.Site.Params.mainSections) 0 }}
 
-    <div class="pa3 pa4-ns w-100 w-50-ns center mw7">
+    <div class="pa3 pa4-ns w-100 w-60-ns center mw8">
       {{/* Use $section_name to get the section title. Use "with" to only show it if it exists */}}
        {{ with .Site.GetPage "section" $section_name }}
           <h1 class="flex-none">
@@ -20,23 +20,42 @@
           </h1>
         {{ end }}
 
-      {{ $n_posts := $.Param "recent_posts_number" | default 3 }}
+      {{ $n_posts := $.Param "recent_posts_number" | default 5 }}
 
       <section class="w-100 mw8">
         {{/* Range through the first $n_posts items of the section */}}
         {{ range (first $n_posts $section) }}
-          <div class="relative w-100 mb4">
-            {{ .Render "summary-with-image" }}
+          <div class="relative w-100 mb2">
+            <!-- {{ .Render "summary-with-image" }} -->
+            <h1 class="f3 fw1 athelas mt3 mt5-ns lh-title">
+              <a href="{{.RelPermalink}}" class="color-inherit dim link underline">
+                {{ .Title }}
+                </a>
+            </h1>
           </div>
         {{ end }}
       </section>
-
+      <div class="w-100">
+        <div class="sticky pt5-ns">
+          <p class="f3 ph3-ns">所有标签</p>
+          <section class="flex-con flex-gap1 mt2 ph3 ph3-ns">
+            {{ range site.Taxonomies.tags }}
+            {{ $p := .Page }}
+            <span class="ba br-pill b--black bw1 pv1-ns ph2-ns mw5 hover-bg-light-gray">
+              <a href="{{ $p.RelPermalink }}" class="f6 link nowrap black">
+                {{ $p.Title }} ({{ .Count }})
+              </a>
+            </span>
+            {{ end }}
+          </section>
+        </div>
+      </div>
       {{ if ge $section_count (add $n_posts 1) }}
       <section class="w-100">
         <h1 class="f3">{{ i18n "more" }}</h1>
         {{/* Now, range through the next four after the initial $n_posts items. Nest the requirements, "after" then "first" on the outside */}}
         {{ range (first 4 (after $n_posts $section))  }}
-          <h2 class="f5 fw4 mb4 dib {{ cond (eq $.Site.Language.LanguageDirection "rtl") "ml3" "mr3" }}">
+          <h2 class="f5 fw4 mb2 dib {{ cond (eq $.Site.Language.LanguageDirection "rtl") "ml3" "mr3" }}">
             <a href="{{ .RelPermalink }}" class="link black dim">
               {{ .Title }}
             </a>
@@ -45,7 +64,9 @@
 
         {{/* As above, Use $section_name to get the section title, and URL. Use "with" to only show it if it exists */}}
         {{ with .Site.GetPage "section" $section_name }}
-          <a href="{{ .RelPermalink }}" class="link db f6 pa2 br3 bg-mid-gray white dim w4 tc">{{ i18n "allTitle" . }}</a>
+        <div>
+          <a href="{{ .RelPermalink }}" class="f6 link dim ba ph3 pv2 mb2 dib black w4 tc">{{ i18n "allTitle" . }}</a>
+        </div>
         {{ end }}
         </section>
       {{ end }}
