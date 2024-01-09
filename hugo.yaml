@@ -1,7 +1,6 @@
 baseURL: 'https://huxulm.github.io/snippets/'
 languageCode: 'zh'
 title: 'Code Snippets'
-# theme: 'ananke'
 defaultContentLanguage: 'zh'
 menus:
   main:
