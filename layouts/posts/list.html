@@ -1,0 +1,30 @@
+{{ define "main" }}
+{{/*
+This template is the same as the default and is here to demonstrate that if you have a content directory called "post"
+you can create a layouts directory, just for that section.
+*/}}
+<article class="pa3 pa4-ns nested-copy-line-height">
+  <div class="flex-l">
+    <div class="order-0 w-20 dn db-l">
+    </div>
+    <div class="order-1 ph0 ph5-ns mid-gray flex-grow-1">
+      <div class="mw8">
+        <aside class="flex-ns flex-wrap justify-around mt5">
+          {{ range .Paginator.Pages }}
+          <div class="relative w-100 w-30-l mb2 bg-white">
+            {{ .Render "summary" }}
+          </div>
+          {{ end }}
+        </aside>        
+      </div>
+    </div>
+    <div class="order-2 w-20 dn db-l">
+      <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy {{ $.Param " text_color" |
+        default "mid-gray" }}">
+        {{ .Content }}
+      </section>
+    </div>    
+  </div>
+  {{ template "_internal/pagination.html" . }}
+</article>
+{{ end }}
