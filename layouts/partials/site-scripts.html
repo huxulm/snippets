@@ -25,18 +25,26 @@
 {{ end -}}
 
 {{ define "algolia/scripts" -}}
-<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
-<script type="text/javascript">
-const containers = ['#docsearch-0', '#docsearch-1'];
-for (let c of containers) {
-  docsearch({
-    container: c,
-    appId: {{ .appId | default "R2IYF7ETH7" }},
-    apiKey: {{ .apiKey | default "599cec31baffa4868cae4e79f180729b" }},
-    indexName: {{ .indexName | default "docsearch" }},
-    algoliaOptions: { 'facetFilters': ["lang:zh-Hans"] },
-    placeholder: "搜索代码片段，标题，标签，内容",
-  });
-}
-</script>
+  {{ with resources.Get "vendor/@docsearch/js/dist/umd/index.js" -}}
+    {{ $js := slice . | resources.Concat "js/vendor/docsearch.js" }}
+    {{ if hugo.IsProduction -}}
+      {{ $js := $js | minify | fingerprint -}}
+      <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" crossorigin="anonymous"></script>
+    {{ else -}}
+      <script src="{{ $js.RelPermalink }}"></script>
+    {{ end -}}
+  {{ end }}
+  <script type="text/javascript">
+  const containers = ['#docsearch-0', '#docsearch-1'];
+  for (let c of containers) {
+    docsearch({
+      container: c,
+      appId: {{ .appId | default "R2IYF7ETH7" }},
+      apiKey: {{ .apiKey | default "599cec31baffa4868cae4e79f180729b" }},
+      indexName: {{ .indexName | default "docsearch" }},
+      algoliaOptions: { 'facetFilters': ["lang:zh-Hans"] },
+      placeholder: "搜索代码片段，标题，标签，内容",
+    });
+  }
+  </script>
 {{ end -}}

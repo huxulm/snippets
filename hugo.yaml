@@ -44,4 +44,6 @@ module:
     - source: node_modules/prismjs
       target: assets/vendor/prismjs    
     - source: node_modules/prism-themes
-      target: assets/vendor/prism-themes 
+      target: assets/vendor/prism-themes
+    - source: node_modules/@docsearch
+      target: assets/vendor/@docsearch
