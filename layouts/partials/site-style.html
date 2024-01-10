@@ -18,9 +18,15 @@
 {{ end }}
 
 {{ if and .Site.Params.search (isset .Site.Params.search "algolia") -}}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3.5.2"
-  integrity="sha512-TW5eKlwwg7OfQUVBqxjp94/uqtjJJbhkRE3++XGEQjAL1n3y//QVqS3acPkwqkzInaFRtj+w05uyxDbfDXiI1A=="
-  crossorigin="anonymous" />
+  {{ with resources.Get "vendor/@docsearch/css/dist/style.css" }}
+    {{ $css := slice (. | toCSS) | resources.Concat "css/vendor/docsearch.css"  }}
+    {{ if hugo.IsProduction -}}
+      {{ $css := $css | minify | fingerprint -}}
+      <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous" />
+    {{ else -}}
+      <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+    {{ end -}}    
+  {{ end }}
 {{ end -}}
 
 {{ range site.Params.custom_css }}
