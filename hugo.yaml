@@ -2,6 +2,7 @@ baseURL: 'https://huxulm.github.io/snippets/'
 languageCode: 'zh'
 title: 'Code Snippets'
 defaultContentLanguage: 'zh'
+copyright: Huxulm
 menus:
   main:
   - name: 我的书籍
