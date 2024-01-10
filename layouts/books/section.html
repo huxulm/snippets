@@ -9,7 +9,7 @@
   <div class="flex-con flex-gap2">
     {{ range $data }}
     <div class="flex">
-      <a class="f3 no-underline" href="{{ .url }}">《{{ .title }}》</a>
+      <a class="f3 no-underline bb bw1 pb1" href="{{ .url }}">《{{ .title }}》</a>
       {{ partial "svg/douban.svg" (dict "size" 16) }}
     </div>
     {{ end }}
