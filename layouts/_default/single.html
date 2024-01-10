@@ -7,13 +7,13 @@
 {{ $section := .Site.GetPage "section" .Section }}
 <article class="w-100 ph2 ph4-l pb5 pb6-ns pt1 pt5-ns">
   <div class="flex-l">
-    <div class="order-0 w-20 dn db-l">
-      <div class="sticky pt5-ns">
+    <div class="order-0 w-25 dn db-l">
+      <div class="sticky pt4-ns mw5-l side-tags">
         {{ partial "tags-flex.html" . -}}
       </div>
     </div>
     <div class="order-1 ph0 ph5-ns mid-gray flex-grow-1">
-      <div class="mw8-l">
+      <div class="mw8-l mr-auto ml-auto">
         <header class="mt4 w-100">
           <aside class="instapaper_ignoref b helvetica tracked ttu">
             {{/*
@@ -73,7 +73,7 @@
         </div>
       </div>
     </div>
-    <div class="order-2 w-20 dn db-l pt0 right-2">
+    <div class="order-2 w-25 dn db-l pt0 right-2">
       <aside class="mw10 pv0-ns ph4-ns fixed">
         {{- partial "menu-contextual.html" . -}}
       </aside>

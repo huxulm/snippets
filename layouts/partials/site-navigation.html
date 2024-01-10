@@ -2,12 +2,12 @@
   <div class="flex flex-l justify-between items-center center">
     <a href="{{ .Site.BaseURL }}" class="f3 fw2 ph1 ph2-ns no-underline dib">
       {{ with .Site.Params.site_logo }}
-        <img src="{{ relURL . }}" class="w100 mw3-ns logo v-top" alt="{{ $.Site.Title }}" />
+        <img src="{{ relURL . }}" class="w100 mw3-ns logo v-top" alt="{{ $.Site.Title | upper }}" />
       {{ else }}
-        {{ .Site.Title }}
+        {{ .Site.Title | upper }}
       {{ end }}
     </a>
-    <span class="f3 pointer dn db-l"><a href="{{ .Site.BaseURL }}" class="no-underline dib link dim black-80">{{ .Site.Title }}</a></span>
+    <span class="f3 pointer dn db-l"><a href="{{ .Site.BaseURL }}" class="no-underline dib link dim black-80">{{ .Site.Title | upper }}</a></span>
     <div class="td-search flex-l flex-grow-1 justify-end ph2 ph4-ns">
       <div class="td-search--algolia" id="docsearch-0"></div>
     </div>
