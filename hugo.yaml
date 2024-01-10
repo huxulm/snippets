@@ -9,6 +9,7 @@ menus:
     url: /books
     weight: 20
 params:
+  favicon: favico.ico
   date_format: 2006-01-02 15:04
   use_prism: true
   prism_theme: material-dark
