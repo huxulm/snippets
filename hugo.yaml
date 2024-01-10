@@ -31,7 +31,7 @@ taxonomies:
 markup:
   highlight:
     style: ""
-
+ignoreErrors: ["error-remote-getjson"]
 module:
   hugoVersion:
     extended: true

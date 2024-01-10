@@ -26,6 +26,8 @@ tags:
 - CI/CD
 - Git
 - Hugo
+- 算法
+- Algorithm
 featured_image: ""
 description: ""
 params:
