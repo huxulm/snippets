@@ -10,19 +10,12 @@ menus:
 params:
   date_format: 2006-01-02 15:04
   use_prism: true
-  # prism_theme: 'coy'
-  # prism_theme: 'twilight'
-  # prism_theme: 'one-light'
-  prism_theme: 'coldark-dark'
+  prism_theme: material-dark
   show_reading_time: true
   site_logo: 'img/logo.svg'
   background_color_class: 'bg-white'
   body_classes: "avenir bg-white"
   socials:
-  - name: gitlab
-    url: https://gitlab.xaotos.cn/xulingming/code_snippets
-    label: Gitlab
-    color: '#ff6800'
   search:
     algolia:
       appId: JK7YO1LOVV
@@ -35,19 +28,7 @@ taxonomies:
 
 markup:
   highlight:
-    anchorLineNos: false
-    codeFences: false
-    guessSyntax: false
-    hl_Lines: ""
-    hl_inline: false
-    lineAnchors: ""
-    lineNoStart: 1
-    lineNos: false
-    lineNumbersInTable: false
-    noClasses: true
-    noHl: false
     style: ""
-    tabWidth: ""
 
 module:
   hugoVersion:

@@ -1,6 +1,7 @@
 /* Put your custom styles here and run `npm start` from the "src" directory on */
-* {
-  font-family: muli, avenir, "helvetica neue", helvetica, ubuntu, roboto, noto, "segoe ui", arial, sans-serif;
+body {
+  font-family: 'Courier New', Courier, monospace, '宋体', songti, '微软雅黑';
+  font-size: 16px;
 }
 #TableOfContents ul li {
   margin-bottom: 1em;

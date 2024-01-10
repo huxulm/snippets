@@ -9,17 +9,7 @@
   <div class="flex-l">
     <div class="order-0 w-20 dn db-l">
       <div class="sticky pt5-ns">
-        <p class="f3 ph5-ns">所有标签</p>
-        <section class="ph4 flex-con flex-gap1 mt2 ph5-ns">
-          {{ range site.Taxonomies.tags }}
-          {{ $p := .Page }}
-          <span class="ba br-pill b--black bw1 pv1-ns ph2-ns mw5 hover-bg-light-gray">
-            <a href="{{ $p.RelPermalink }}" class="f6 link nowrap black">
-              {{ $p.Title }} ({{ .Count }})
-            </a>
-          </span>
-          {{ end }}
-        </section>
+        {{ partial "tags-flex.html" . -}}
       </div>
     </div>
     <div class="order-1 ph0 ph5-ns mid-gray flex-grow-1">

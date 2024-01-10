@@ -30,3 +30,35 @@ r.URL.Query().Get("token")
 ```go
 r.FormValue("username")
 ```
+## 静态资源服务
+要提供 JavaScript、CSS 和图片等静态资源，可以使用内置的 `http.FileServer` 并将其指向 url 路径。为了让文件服务器正常工作，它需要知道从哪里提供文件。
+```go
+// fs 指向目录 static
+fs := http.FileServer(http.Dir("static/"))
+// 从 url 中移除 /staic/, 这样剩余部分 url 才能匹配 fs 指向的路径
+http.Handle("/static/", http.StripPrefix("/static/", fs))
+```
+## 接受连接
+```go
+http.ListenAndServe(":80", nil)
+```
+## 完整代码
+```go
+package main
+
+import (
+    "fmt"
+    "net/http"
+)
+
+func main() {
+    http.HandleFunc("/", func (w http.ResponseWriter, r *http.Request) {
+        fmt.Fprintf(w, "Welcome!")
+    })
+
+    fs := http.FileServer(http.Dir("static/"))
+    http.Handle("/static/", http.StripPrefix("/static/", fs))
+
+    http.ListenAndServe(":80", nil)
+}
+```
