@@ -1,5 +1,5 @@
 # code_snippets
-[Live Demo]()
+[Live Demo](https://huxulm.github.io/snippets/)
 ## 特性
 - 响应式布局
 - 集成 [algolia] 搜索引擎
