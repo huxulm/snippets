@@ -5,7 +5,7 @@
 
 {{ define "main" }}
 {{ $section := .Site.GetPage "section" .Section }}
-<article class="w-100 ph4 pb5 pb6-ns pt1 pt5-ns">
+<article class="w-100 ph2 ph4-l pb5 pb6-ns pt1 pt5-ns">
   <div class="flex-l">
     <div class="order-0 w-20 dn db-l">
       <div class="sticky pt5-ns">
@@ -23,7 +23,7 @@
       </div>
     </div>
     <div class="order-1 ph0 ph5-ns mid-gray flex-grow-1">
-      <div class="mw8">
+      <div class="mw8-l">
         <header class="mt4 w-100">
           <aside class="instapaper_ignoref b helvetica tracked ttu">
             {{/*
@@ -70,7 +70,7 @@
           nested-links {{ $.Param "text_color" | default "mid-gray" }} {{ cond (eq
           $.Site.Language.LanguageDirection "rtl" ) "pl4-l" "pr4-l" }} w-100">
           {{- .Content -}}
-          <hr />
+          <hr class="mt3 mt5-l" />
           {{- partial "tags.html" . -}}
           <div class="mt6 instapaper_ignoref">
             {{ if .Site.Config.Services.Disqus.Shortname }}

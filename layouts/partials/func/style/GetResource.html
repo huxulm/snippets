@@ -1,8 +1,8 @@
 {{/*
   style/GetResource
-  Get a style asset stored at `/assets/css`
+  Get a scss style asset stored at `/assets/scss`
 
-  @author @regisphilibert
+  @author @huxulm
 
   @context String (.)
 
@@ -12,7 +12,7 @@
 
 */}}
 {{ $resource := dict }}
-{{ with resources.Get (print "/css/" .) }}
+{{ with resources.Get (print "/scss/" .) }}
   {{ $resource = . }}
 {{ end }}
 

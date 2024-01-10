@@ -1,9 +1,5 @@
 <!-- vendor -->
 {{ $cssArray := slice }}
-{{ with resources.Get "vendor/bootstrap/dist/css/bootstrap.css" }}
-  {{ $cssArray = $cssArray | append . }}
-{{ end }}
-
 {{ if site.Params.use_prism }}
   {{ with resources.Get (print "vendor/prism-themes/themes/prism-" site.Params.prism_theme ".css") }}
     {{ $cssArray = $cssArray | append . }}
