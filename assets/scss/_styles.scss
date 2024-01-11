@@ -7,7 +7,7 @@ a, a:visited {
   color: black!important;
 }
 #TableOfContents ul li {
-  margin-bottom: 1em;
+  margin-bottom: 0.125em;
 }
 
 li ul li {
@@ -78,4 +78,14 @@ li ul li {
 .sticky {
   position: sticky;
   top: 0;
+}
+
+article[theme='default'] {
+  background: $white;
+}
+article[theme='yellow'] {
+  background: tint-color($yellow, 95%);
+}
+article[theme='green'] {
+  background: tint-color($green, 90%);
 }
