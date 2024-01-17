@@ -22,15 +22,18 @@
 
       {{ $n_posts := $.Param "recent_posts_number" | default 5 }}
 
-      <section class="w-100 mw8">
+      <section class="w-100 mw7">
         {{/* Range through the first $n_posts items of the section */}}
         {{ range (first $n_posts $section) }}
           <div class="relative w-100 mb2">
             <!-- {{ .Render "summary-with-image" }} -->
-            <h1 class="f3 fw1 athelas mt3 mt5-ns lh-title">
+            <h1 class="f3 fw1 athelas mt1 mt3-ns lh-title flex flex-column flex-row-ns justify-between">
               <a href="{{.RelPermalink}}" class="color-inherit dim link underline">
                 {{ .Title }}
-                </a>
+              </a>
+              <span class="f6 f5-ns i mt2 mt0-ns">
+                最近更新&nbsp;&nbsp;{{ .Date | time.Format (default "January 2, 2006" .Site.Params.date_format) }}
+              </span>
             </h1>
           </div>
         {{ end }}
