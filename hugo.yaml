@@ -17,6 +17,7 @@ params:
   site_logo: 'img/logo.svg'
   background_color_class: 'bg-white'
   body_classes: "avenir bg-white"
+  post_content_classes: 'athelas'
   socials:
   search:
     algolia:

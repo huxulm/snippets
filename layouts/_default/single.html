@@ -39,10 +39,16 @@
           {{ end }}
           {{/* Hugo uses Go's date formatting is set by example. Here are two formats */}}
           {{ if not .Date.IsZero }}
-          <time class="f6 mv4 dib tracked" {{ printf `datetime="%s" ` (.Date.Format "2006-01-02T15:04:05Z07:00" ) |
+          <time class="f6 mv4 dib tracked" {{ printf `datetime="%s" ` (.Date.Format .Site.Params.date_format ) |
             safeHTMLAttr }}>
-            {{- .Date | time.Format (default "January 2, 2006" .Site.Params.date_format) -}}
+            发布时间：{{- .Date | time.Format (default "January 2, 2006" .Site.Params.date_format) -}}
           </time>
+          {{ if .Lastmod }}
+            <time class="f6 mv4 dib tracked" {{ printf `datetime="%s" ` (.Date.Format .Site.Params.date_format ) |
+            safeHTMLAttr }}>
+            最近更新：{{- .Lastmod | time.Format (default "January 2, 2006" .Site.Params.date_format) -}}
+            </time>
+          {{ end }}
           {{end}}
 
           {{/*
@@ -56,7 +62,7 @@
           <span class="f6 mv4 dib tracked"> - {{ i18n "wordCount" .WordCount }} </span>
           {{ end }}
         </header>
-        <div class="nested-copy-line-height lh-copy {{ $.Param " post_content_classes" | default "serif" }} f4
+        <div class="nested-copy-line-height lh-copy {{ $.Param "post_content_classes" | default "athelas" }} f4
           nested-links {{ $.Param "text_color" | default "mid-gray" }} {{ cond (eq
           $.Site.Language.LanguageDirection "rtl" ) "pl4-l" "pr4-l" }} w-100">
           {{- .Content -}}
