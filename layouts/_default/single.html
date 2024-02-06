@@ -15,7 +15,7 @@
     <div class="order-1 ph0 ph5-ns mid-gray flex-grow-1">
       <div class="mw8-l mr-auto ml-auto">
         <header class="mt4 w-100">
-          <aside class="instapaper_ignoref b helvetica tracked ttu">
+          <aside class="instapaper_ignoref b helvetica tracked ttu sans-serif">
             {{/*
             CurrentSection allows us to use the section title instead of inferring from the folder.
             https://gohugo.io/variables/page/#section-variables-and-methods
@@ -23,7 +23,7 @@
             {{ .CurrentSection.Title }}
           </aside>
           {{ partial "social-share.html" . }}
-          <h1 class="f1 athelas mt3 mb1">
+          <h1 class="f1 mt3 mb1">
             {{- .Title -}}
           </h1>
           {{ with .Params.author | default .Site.Params.author }}
