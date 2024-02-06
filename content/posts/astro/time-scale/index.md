@@ -2,11 +2,12 @@
 title: "不同的时间尺度"
 slug: "time-scale"
 date: 2024-02-06T12:05:56+08:00
+lastmod: 2024-02-06T18:24:56+08:00
 tags: ["天文"]
+toc: true
 featured_image: ""
 description: "时间尺度：UT1, UTC, TAI, TT, GPS"
 ---
-## 不同的时间尺度
 ### **TAI**
 国际原子时 (英语：International Atomic Time、法语：Temps Atomique International, TAI)
  
@@ -22,14 +23,14 @@ description: "时间尺度：UT1, UTC, TAI, TT, GPS"
 地球时（英语：Terrestrial Time），简称**TT**，是现代在地球表面上的时间标准，是位于大地海平面体验的原时。在天文学，则为局限在地球上的观测者显示星历表的时间座标。它与地心座标时（Geocentric Coordinate Time）有直接的关联，是天文的地球系统时间标准。由于广义相对论中的引力时间膨胀，地球时的滴答声是恒定的比例，并且比地心座标时缓慢些。
 
 ![Alt text](time.png)
-## Delta-T
+### Delta-T
 delta-T 随地球自转而不断变化。
 
 UT1 相对于 UTC 是可变的。 UTC 中引入了闰秒，以使 delta-UT 保持在 +-0.9 秒之内。
 
 TAI-UTC 始终是整数秒，并且在每年年底、每半年或每三个月添加（或删除，但尚未发生）闰秒时会发生变化。 该优先顺序。
 
-## 1972 年至今的时间尺度表及一些预测
+### 1972 年至今的时间尺度表及一些预测
 TT = TAI+32.184s ==> UT1-UTC = TAI-UTC - (TT-UT1) + 32.184s
 
 |Starting at|    TAI-UTC  |   GPS-UTC|   TT-UT1|    UT1-UTC|
