@@ -24,5 +24,8 @@ docker run --rm -e ETCDCTL_API=3 && \
 ```
 ## 恢复
 ```shell
-docker run --rm -e ETCDCTL_API=3  -v ./snap:/snap -v /var/lib/etcd:/var/lib/etcd quay.io/coreos/etcd:v3.5.5 /usr/local/bin/etcdctl --data-dir /var/lib/etcd snapshot restore /snap/etcd-snapshot_20231025.db
+docker run --rm -e ETCDCTL_API=3  -v ./snap:/snap && \
+  -v /var/lib/etcd:/var/lib/etcd quay.io/coreos/etcd:v3.5.5 && \
+  /usr/local/bin/etcdctl --data-dir /var/lib/etcd && \
+  snapshot restore /snap/etcd-snapshot_20231025.db
 ```
