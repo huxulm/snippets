@@ -16,7 +16,7 @@ keywords:
 ```shell
 docker run --rm -e ETCDCTL_API=3 && \ 
   quay.io/coreos/etcd:v3.5.5 /usr/local/bin/etcdctl && \
-  --endpoints=https://210.73.36.91:2379 && \
+  --endpoints=https://x.x.x.x:2379 && \
   --cacert=/etc/kubernetes/pki/etcd/ca.crt && \
   --cert=/etc/kubernetes/pki/etcd/healthcheck-client.crt && \
   --key=/etc/kubernetes/pki/etcd/healthcheck-client.key snapshot save && \
