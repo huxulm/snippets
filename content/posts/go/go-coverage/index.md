@@ -4,9 +4,10 @@ date: 2024-03-07T16:27:55+08:00
 tags: ["Go", "Testing"]
 featured_image: ""
 description: ""
+toc: true
 ---
 ## 项目结构
-```
+```text
 .
 ├── cmd
 │   └── add
@@ -125,29 +126,29 @@ func main() {
 ```
 ## 测试验证
 作为合理性检查，单元测试应该通过，我们可以通过运行以下程序来构建我们的程序：
-```go
+```shell
 go test ./...
 go build -o /dev/null ./cmd/add/
 ```
 
 ## 运行单元测试以收集覆盖率
 go1.20 以前
-```
+```shell
 go test -coverprofile=c.out ./...
 ```
 Go 1.20 中，有一种方法可以指示 go test 创建二进制覆盖率报告
-```go
+```shell
 mkdir -p coverage/unit
 go test -cover ./... -args -test.gocoverdir="$PWD/coverage/unit"
 ```
 以百分数形式显示覆盖率报告
-```
+```shell
 go tool covdata percent -i=coverage/unit
 ```
 类似如下：
 ![percent](percent.png)
 覆盖率报告中显示函数名
-```
+```shell
 go tool covdata funcs -i=coverage/unit
 ```
 类似如下：
