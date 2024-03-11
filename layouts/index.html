@@ -11,7 +11,6 @@
   {{ if ge $section_count 1 }}
     {{/* Derive the section name  */}}
     {{ $section_name := index (.Site.Params.mainSections) 0 }}
-h:\Development\github\huxulm\snippets\content\posts\go\go-coverage h:\Development\github\huxulm\snippets\content\posts\go\go-best-practices
     <div class="pa3 pa4-ns w-100 w-60-ns center mw8">
       {{/* Use $section_name to get the section title. Use "with" to only show it if it exists */}}
        {{ with .Site.GetPage "section" $section_name }}
