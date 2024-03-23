@@ -89,3 +89,12 @@ article[theme='yellow'] {
 article[theme='green'] {
   background: tint-color($green, 90%);
 }
+
+.cover {
+  .cover-bg {
+    background: white;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
